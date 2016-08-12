@@ -16,7 +16,7 @@ The main reasons are
 * [Bitcoin Wallet][2]
 * [GitHub App][5]
 
-Bat use [OpenShift](9) or install
+Bat use [OpenShift][9] or install
 
 * [NodeJs][7]
 * [MongoDB][8]
@@ -44,17 +44,17 @@ Put the settings the server.
 | `CACHE_WATCH` | String | YES | The name of of the hearder Eg. `x-cache-watch` |
 | `COMPRESS_CSS` | Boolean | NO | Compress the CSS |
 | `COMPRESS_JS` | Boolean | NO | Compress the JavaScript in browers |
-| `HTTPS_ACTIVE` | Boolean | NO | Use [Https](1) |
+| `HTTPS_ACTIVE` | Boolean | NO | Use [Https][1] |
 | `BITCOIN_MASTER` | String | YES | Bitcoin account master |
-| `BLOCKCHAIN_ID` | String | YES | Id form the [BlockChain](2) |
-| `BLOCKCHAIN_SECRET1` | String | YES | Password principal form the [BlockChain](2) |
-| `BLOCKCHAIN_SECRET2` | String | YES | Password secondary form the [BlockChain](2) |
-| `GITHUB_ID` | String | YES | Id form app in [Github](5) |
-| `GITHUB_SECRET` | String | YES | Secreet form app in [Github](5) |
+| `BLOCKCHAIN_ID` | String | YES | Id form the [BlockChain][2] |
+| `BLOCKCHAIN_SECRET1` | String | YES | Password principal form the [BlockChain][2] |
+| `BLOCKCHAIN_SECRET2` | String | YES | Password secondary form the [BlockChain][2] |
+| `GITHUB_ID` | String | YES | Id form app in [Github][5] |
+| `GITHUB_SECRET` | String | YES | Secreet form app in [Github][5] |
 | `OPENSHIFT_APP_DNS` | String | NO | The fully-qualified domain namespace of the application [OpenShift][3] |
-| `OPENSHIFT_APP_NAME` | String | YES | The name of the application [OpenShift](3) |
-| `OPENSHIFT_APP_UUID` | String | YES | The UUID of the application [OpenShift](3) |
-| `OPENSHIFT_DATA_DIR` | String | NO | A persistent data directory [OpenShift](3) |
+| `OPENSHIFT_APP_NAME` | String | YES | The name of the application [OpenShift][3] |
+| `OPENSHIFT_APP_UUID` | String | YES | The UUID of the application [OpenShift][3] |
+| `OPENSHIFT_DATA_DIR` | String | NO | A persistent data directory [OpenShift][3] |
 | `IS_FREE` | Number | NO | The number free pages :D |
 | `IS_MAX` | Number | NO | Is the max number cache for the service |
 | `KONSTANT` | Number | NO | How many per page in the cache in Bitcoin Eg. 0.00001 |
