@@ -82,7 +82,7 @@ And start
 [3]: https://developers.openshift.com/managing-your-applications/environment-variables.html
 [4]: https://blockchain.info/es/wallet/payment-notifications
 [5]: https://github.com/settings/developers
-[6]: https://developer.cache.watch/
+[6]: http://developer.cache.watch/
 [7]: http://nodejs.org/
 [8]: http://mongodb.org/
 [9]: https://developers.openshift.com/languages/nodejs/index.html
