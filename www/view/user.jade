@@ -1,0 +1,40 @@
+.ng-form.plan.all-50.small-100.tiny-100.medium-100.column-group.gutters( name="a.shop" )
+	.all-35.show-xlarge.show-large.show-medium.hide-all.medium-20
+		include logo
+	.all-65.small-100.tiny-100.medium-80
+		.control-group.half-top-padding
+			.control.prepend-button
+				label.ng-button( for='fox' )= word.per_page
+				span: input#fox(type="number", ng-model="a.num", ng-min=process.env.IS_FREE, ng-max=process.env.IS_MAX ).align-right
+		.control-group( ng-if="a.shop.$valid && a.url")
+			.control.append-button
+				span: input#bit(type="text", ng-model="a.url", readonly)
+				a.ng-button( type="submit", ng-disabled="a.shop.$invalid && !a.url", ng-href="{{a.url}}", target="_blank" )= word.comprar + " {{ a.price | currency:'$':6}} BTC"
+		.control-group( ng-if="a.shop.$invalid && !a.url", ng-messages="a.shop.$error")
+			h3.quarter-vertical-space( ng-message="min")= word.free
+			h4.quarter-vertical-space( ng-message="max")!= word.unlimit
+	.hide-small.hide-tiny.all-100( ng-if="a.shop.$valid && a.url")
+		.all-10.push-center
+			qrcode( version="6", data="{{a.url}}", href="{{a.url}}", size="125", error-correction-level="M" )
+
+section.user.all-50.small-100.tiny-100.medium-100.half-top-padding
+	a.card.column-group(ng-href="{{a.account.user.data.html_url}}", target="_blank")
+		.avatar.all-10: img(ng-src="{{a.account.user.data.avatar_url}}", alt="{{a.account.user.data.login}}")
+		.name.all-90.left-padding: h5 {{a.account.user.data.name}}
+			p.small {{a.account.user.data.login}}
+	.ng-form.top-padding
+		.control-group
+			label(for="token") Token
+			.control.append-button
+				span: input#user(type="text", ng-model="a.account.user.token", readonly)
+				button.ng-button( ng-click="a.token()" )
+					span 
+						i.fa.fa-refresh 
+						= word.refresh
+						
+		.control-group
+			label(for="cache")= word.cache_days
+			.control.append-button
+				span: select#cache( ng-model="a.account.user.time" ng-Options="val for val in a.selectMax" )
+				button.ng-button( ng-click="a.save()" )
+					span= word.save

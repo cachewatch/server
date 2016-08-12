@@ -1,0 +1,36 @@
+.ng-form.all-100.column-group.gutters(ng-submit="l.search()")
+	.all-15.hide-all.show-xlarge.show-large.show-medium
+		include logo
+	.column-group.half-gutters.all-85.small-100.tiny-100
+		.control-group.all-75
+			label(for="search")= word.search
+			.control.append-symbol: span
+				input#search(type="text", placeholder="http://...", ng-model="l.fils" )
+				i.fa.fa-search
+		.control-group.all-25
+			label(for="limit")= word.items_per
+			.control: select#limit( ng-model="l.num.limit" ng-Options="val for val in [ 100, 200, 500, 1000, 2000, 5000, 10000 ]" )
+		nav.ng-navigation.push-right
+			ul.pagination.black.push-right
+				li( ng-class="{ disabled : !l.url.prevPage }"): a( ng-click="l.goTo(1)" ): i.fa.fa-angle-double-left
+				li( ng-class="{ disabled : !l.url.prevPage }"): a( ng-click="l.goTo('prevPage')" ): i.fa.fa-angle-left 
+				li.active: a= word.is_in
+				li( ng-class="{ disabled : !l.url.nextPage }"): a( ng-click="l.goTo('nextPage')" ): i.fa-angle-right.fa
+				li( ng-class="{ disabled : l.url.totalPages - 1 > l.page }"): a( ng-click="l.goTo('totalPages')" ): i.fa-angle-double-right.fa
+.all-100
+	table.ng-table(ng-show="rult.length" )
+		thead
+			tr
+				th=word.url
+				th=word.request
+				th=word.rerfesh
+				th=word.acction
+		tbody
+			tr( ng-repeat="cache in l.url.list | filter:l.fils as rult")
+				th.align-left( width="60%" ) {{cache.url}}
+				th.align-rigth {{cache.numb}}
+				th {{cache.date|date:'medium'}}
+				th.button-group
+					button.ng-button( ng-click="l.reload('{{cache._id}}')" ): i.fa.fa-refresh
+					//- a.ng-button(ng-href=SERVICE + '/list' ): i.fa.fa-refresh
+	h4.align-center( ng-show="!rult.length" )= word.no_search

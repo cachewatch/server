@@ -1,0 +1,9 @@
+form.all-100.column-group.gutters#report( name="f.report", ng-submit="f.sender()" )
+	.all-15.hide-all.show-xlarge.show-large.show-medium
+		include logo
+	.column-group.half-gutters.all-85.small-100.tiny-100
+		.control-group.all-65: .control.append-button
+			span: input#mail(type="email", placeholder="myemail@domain.com", ng-model="f.report.mail" )
+			button.ng-button( type="submit", ng-disabled="f.report.$invalid && f.report.mesg.length" )= word.sender
+		.control-group.all-65: .control
+			textarea( placeholder="Text..", ng-model="f.report.mesg" )

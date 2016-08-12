@@ -1,0 +1,7 @@
+ul.horizontal.green.menu.push-right
+	li: a(href="http://developer.cache.watch/" )= word.doc
+	li( ng-if="isLogin" ): a(href="/user" )=word.user
+	li( ng-if="isLogin" ): a(href="/list" )= word.cache
+	li( ng-if="isLogin" ): a(href="/baucher" ) Baucher
+	li( ng-if="isLogin" ): a(ng-click="out()" )= word.log_out
+	li( ng-if="!isLogin" ): a( href="#{SERVICE}auth" )= word.log_in

@@ -1,0 +1,32 @@
+doctype html
+html(lang=word.code, ng-app="cache")
+	head( data-status="{{status}}" )
+		base( href= STATIC )
+		title=title
+		link(rel="stylesheet", type="text/css", href="public/cw.css")
+		meta( name="twitter:site", value="@cache_watch" )
+		meta( name="twitter:url", value="#{STATIC}" )
+		meta( property="og:url", content="#{STATIC}" )
+		meta( property="og:site_name", content="CacheWatch" )
+		meta( property="og:title", content=title )
+		meta( name="twitter:title", value=title )
+		meta( content="#{word.copy}. #{word.how_descr}", name="description")
+		meta( property="og:description", content="#{word.copy}" )
+		meta( property="og:content", content='#{word.how_descr}' )
+
+	body.app.ng-grid
+		#topbar.top-space.all-100( sticky )
+			nav.ng-navigation.ng-grid.ie7.ng-column-group
+				user-menu
+
+		section.ng-show.double-top-padding.column-group.horizontal-gutters( ng-view )
+		footer.top-space
+			nav.ng-navigation
+				ul.breadcrumbs.white.push-right
+					li: a(href="mailto:unlimit@cache.watch")=word.contact
+					li: a(href="/info/terms")= word.terms
+					li: a(href="/feed")=word.help
+					li: a(href="https://twitter.com/cache_watch") Twitter
+
+		script(type="text/javascript", src="public/lib.js")
+		script(type="text/javascript") (function(c,a,h,e){c[a](h)[e]('SESSION','#{process.env.OPENSHIFT_APP_UUID}')[e]('SERVICE','#{SERVICE}')[e]('LANG','#{word.code}')[e]('TOKEN','#{TOKEN}')[e]('KAN',#{process.env.KONSTANT})[e]('XHEADER','#{process.env.CACHE_WATCH}')})(window.angular,'module','const','constant');

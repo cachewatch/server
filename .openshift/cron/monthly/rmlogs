@@ -1,0 +1,2 @@
+cd $OPENSHIFT_LOGS_DIR
+find . -type f \( -name access_log-\* -or -name error_log-\* -or -name backup_logs-\* \) -mtime +30 -exec rm {} \;

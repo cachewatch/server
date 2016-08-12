@@ -1,0 +1,13 @@
+section.ng-show.all-70.push-center
+	h2.top-padding.horizontal-padding= word.moch
+	.ng-form( name='w.shop')
+		.control-group
+			.control.prepend-button
+				label( for='fox' ).ng-button= word.per_page
+				span: input#fox(type="number", ng-model="w.num", ng-min=process.env.IS_FREE, ng-max=process.env.IS_MAX )
+		.control-group
+			.control.push-right( ng-if="w.shop.$valid" )
+				span {{ w.aprox()| currency:'$':7 }} BTC
+			h4.section( ng-messages="w.shop.$error" )
+				p.tip( ng-message="min")= word.free
+				p.tip( ng-message="max")!= word.unlimit

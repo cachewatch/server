@@ -1,0 +1,176 @@
+section.all-100.slides.double-vertical-padding
+	nav.ng-navigation
+		ul.pagination.chevron.black
+			li.previous: a( ng-click="w.goBack()")
+				span= word.previous
+			li.next: a( ng-click="w.goNext()")
+				span= word.next
+	.slide.ligth.double-top-padding( ng-show="0 === w.slide" )
+		section.double-top-padding: p.top-padding.align-center= word.copy 
+	.slide.all-70.push-center( ng-show="1 === w.slide" )
+		h2.half-top-padding.horizontal-padding= word.how_title
+		p.align-center= word.how_descr 
+		p.align-center
+			i.fa.fa-globe.fa-3x
+			i.fa.fa-3x( timer-for="fa-arrow-", start="left", go="right" )
+			i.fa.fa-file-code-o.fa-3x
+			i.fa.fa-3x( timer-for="fa-arrow-", start="left", go="right" )
+			i.fa.fa-cloud.fa-3x
+	.slide.no-space( ng-show="2 === w.slide" )
+		include plans
+
+section.all-100
+	h2.half-top-padding= word.use
+	.column-group.horizontal-gutters
+		.front.ng-tabs.top.all-50.medium-100.small-100.tiny-100
+			ul.tabs-nav
+				li( ng-class="{ active : w.front === 0 }" ): a(ng-click="w.front=0;") Angular
+				//-li( ng-class="{ active : front === 1 }" ): a(ng-click="front=1;") BackBone
+				//-li( ng-class="{ active : front === 2 }" ): a(ng-click="front=2;") ember
+				li( ng-class="{ active : w.front === 3 }" ): a(ng-click="w.front=3;") jQuery
+
+			section.tabs-content( ng-show="w.front==0" )
+				//- Angular
+				:markdown
+					Install
+
+					```
+					$ [npm|bower] install cachewatch-angular
+					```
+
+					In your app
+					
+
+					```
+					angular
+						.module('myApp', ['cachewatch'])
+						.controller('MyController', [ '$scope', 'cachewatch',
+						function($scope, cache){
+							cache.ready();
+						}]);
+					```
+
+			//-section.tabs-content( ng-show="front==1" )
+				//- backbone
+				:markdown
+					Install
+
+					```
+					$ [npm|bower] install backbone-cachewatch
+					```
+					
+					In your app
+					
+					```
+					angular
+						.module('myApp', ['cachewatch'])
+						.controller('MyController', [ '$scope', 'cachewatch',
+						function($scope, cache){
+							cache.ready();
+						}]);
+					```
+
+			//-section.tabs-content( ng-show="front==2" )
+				//- ember
+				:markdown
+					Install
+
+					```
+					$ [npm|bower] install ember-cachewatch
+					```
+					
+					In your app
+					
+					```
+					angular.module('myApp', ['cachewatch'])
+						.controller('MyController', [
+							'$scope',
+							'cachewatch',
+						function($scope, cache){
+							cache.ready();
+						}]);
+					```
+
+			section.tabs-content( ng-show="w.front==3" )
+				//- jquery
+				:markdown
+					Install
+
+					```
+					$ [npm|bower] install cachewatch-jquery
+					```
+					
+					In your app
+					
+					```
+					$.cachewatch.ready();
+					```
+
+		.back.ng-tabs.top.all-50.small-100.tiny-100.medium-100
+			ul.tabs-nav
+				li( ng-class="{ active : w.back === 0 }" ): a(ng-click="w.back=0;") Express
+				li.hide-all.show-medium.show-large.show-xlarge( ng-class="{ active : w.back === 1 }" ): a(ng-click="w.back=1;") Ruby on Rails
+				li.hide-all.show-medium.show-xlarge( ng-class="{ active : w.back === 2 }" ): a(ng-click="w.back=2;") Nginx
+				li.hide-all.show-tiny.show-small.show-medium.show-large.show-xlarge( ng-class="{ active : w.back === 3 }" ): a(ng-click="w.back=3;") Apache
+				li: a( href="http://developer.cache.watch/"  )= word.more
+
+			section.tabs-content(ng-show="w.back==0")
+				//- Express
+				:markdown
+					Install
+
+					```
+					$ npm install cachewatch -s
+					```
+					
+					In your app
+					
+					```
+					var CacheWatch = require('CacheWatch');
+					app.use(CacheWatch.key('-- KEY --'));
+					```
+
+			section.tabs-content(ng-show="w.back==1")
+				//- Ruby
+				:markdown
+					Install
+
+					```
+					$ gem cachewatch
+					```
+					
+					In your app
+					
+					```ruby
+					config.middleware.use Rack::cachewatch
+					```
+
+			section.tabs-content(ng-show="w.back==2")
+				//- Nginx
+				:markdown
+					Install
+
+					```
+					$ pipe install cachewatch
+					```
+					
+					In your app
+					
+					```ruby
+					config.middleware.use Rack::cachewatch
+					```
+
+			section.tabs-content(ng-show="w.back==3")
+				//- Apache
+				:markdown
+					Install
+
+					```
+					$ pipe install cachewatch
+					```
+					
+					In your app
+					
+					```ruby
+					config.middleware.use Rack::cachewatch
+					```

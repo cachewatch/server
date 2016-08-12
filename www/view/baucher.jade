@@ -1,0 +1,31 @@
+.ng-form.all-100.column-group.gutters(ng-submit="b.search()")
+	.all-15.hide-all.show-xlarge.show-large.show-medium
+		include logo
+	.all-85.small-100.tiny-100
+		.control-group
+			label(for="search")= word.search
+			.control( class="append-{{ !rulst.length ? 'button' : 'symbol' }}" )
+				span
+					input(type="text", placeholder=word.hash, ng-model="b.fils" )
+					i.fa.fa-search( ng-if="rulst.length" )
+				button.ng-button( ng-if="!rulst.length", ng-click="b.sendCupon()" )=word.cupon
+
+.all-100
+	table.ng-table( ng-show="rulst.length" )
+		thead
+			tr
+				th 
+				th= word.rerfesh
+				th= word.use
+				th= word.per_pages
+				th= word.valor
+				th Hash
+		tbody
+			tr( ng-repeat="baucher in b.list.plans | filter:b.fils as rulst")
+				th: i.fa.fa-check-circle( ng-show="baucher.used < baucher.num" )
+				th {{ baucher.date | date }}
+				th {{baucher.used | number:0 }}
+				th {{baucher.num | number:0 }}
+				th.align-right {{ baucher.total |currency:'$':6}} BTC
+				th: a( ng-href="https://blockchain.info/search/{{ baucher.hash}}", target="_blank") {{ baucher.hash}}
+	h4.align-center.all-100( ng-show="!rulst.length" )= word.no_search
